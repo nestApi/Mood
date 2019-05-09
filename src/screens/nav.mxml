@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:Drawers xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:f="library://ns.feathersui.com/mxml"
+    openGesture="edge"
+     bottomDrawerDockMode="none"
+     openMode="above"
+    creationComplete="onCrtCmp()"
+    >
+
+    <!-- CONTENT -->
+    <f:content>
+    <f:PanelScreen title="Mixes" styleName="{feathers.themes.BaseUniflatMobileTheme.THEME_STYLE_NAME_PANEL_WITHOUT_PADDING}">
+    <f:layout>
+    <f:AnchorLayout/>
+    </f:layout>
+        <f:List id="list" change="onChange()" interactionMode="touchAndScrollBars" scrollBarDisplayMode="float">
+        <f:layoutData><f:AnchorLayoutData top="0" right="0" bottom="0" left="0"/></f:layoutData>
+        </f:List>
+   </f:PanelScreen>
+    </f:content>
+
+    <!-- DRAWER -->
+    
+    <fx:Script>
+        <![CDATA[
+            import feathers.controls.renderers.IListItemRenderer;
+            import feathers.controls.renderers.DefaultListItemRenderer;
+            import feathers.data.ArrayCollection;
+            import _assets.AppAssets;
+            import modules.player;
+            import feathers.themes.BaseUniflatMobileTheme;
+            import managers.contentManager;
+
+            private function onCrtCmp():void
+        {
+            bottomDrawer=new player()
+            trace("onCrtCmp")
+            list.itemRendererFactory=function():IListItemRenderer{
+                var ir:DefaultListItemRenderer=new DefaultListItemRenderer();
+                ir.styleNameList.add(DefaultListItemRenderer.ALTERNATE_STYLE_NAME_DRILL_DOWN)
+                ir.labelField="title"
+                ir.iconSourceField="ic"
+                return ir
+            }
+            list.dataProvider=contentManager.menuListCollection
+            /* list.dataProvider=new ArrayCollection([
+                {title:"Mix 01", ic:AppAssets.MenuLogoTextureMob}
+                ,{title:"Mix 02", ic:AppAssets.MenuLogoTextureMob}
+                ,{title:"Mix 03", ic:AppAssets.MenuLogoTextureMob}
+                ,{title:"Mix 04", ic:AppAssets.MenuLogoTextureMob}
+                ,{title:"Mix 05", ic:AppAssets.MenuLogoTextureMob}
+                ,{title:"Mix 06", ic:AppAssets.MenuLogoTextureMob}
+                ,{title:"Mix 07", ic:AppAssets.MenuLogoTextureMob}
+                ,{title:"Mix 08", ic:AppAssets.MenuLogoTextureMob}
+                ,{title:"Mix 09", ic:AppAssets.MenuLogoTextureMob}
+                ,{title:"Mix 10", ic:AppAssets.MenuLogoTextureMob}
+            ]) */
+
+        }
+
+        private function inTrCmpt():void
+        {
+            trace("inTrCmpt")
+        }
+            private function onChange():void
+        {
+            trace("onChange")
+            trace(this.list.selectedIndex)
+        }
+        ]]>
+    </fx:Script>
+</f:Drawers>

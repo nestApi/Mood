@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:f="library://ns.feathersui.com/mxml" title="LANDING" creationComplete="onCrtCmp()" transitionInComplete="inTrCmpt()">
+
+    <f:layout>
+    <f:AnchorLayout/>
+    </f:layout>
+
+<fx:Script>
+    <![CDATA[
+        import feathers.controls.renderers.IListItemRenderer;
+        import feathers.controls.renderers.DefaultListItemRenderer;
+        import feathers.data.ArrayCollection;
+        import _assets.AppAssets;
+        import feathers.media.SoundPlayer;
+        import feathers.media.PlayPauseToggleButton;
+        import feathers.media.SeekSlider;
+        import feathers.layout.HorizontalLayout;
+
+        private function onCrtCmp():void
+        {
+            
+            trace("onCrtCmp")
+            
+        var sp:SoundPlayer=new SoundPlayer()
+        addChild(sp)
+        var b:PlayPauseToggleButton=new PlayPauseToggleButton()
+        sp.addChild(b)
+        var s:SeekSlider=new SeekSlider()
+        sp.addChild(s)
+       var l:HorizontalLayout=new HorizontalLayout()
+
+           /* web.loadString('<!DOCTYPE html><html><body><iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fphonons%2Fmesromix_001%2F" frameborder="0" ></iframe></body></html>') */
+
+        }
+
+        private function inTrCmpt():void
+        {
+            trace("inTrCmpt")
+        }
+
+        private function onChange():void
+        {
+            trace("onChange")
+        }
+    ]]>
+</fx:Script>
+</f:PanelScreen>

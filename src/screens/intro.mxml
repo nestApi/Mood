@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<f:Screen xmlns:f="library://ns.feathersui.com/mxml" xmlns:fx="http://ns.adobe.com/mxml/2009"
+ creationComplete="inTrCp(event)">
+    <fx:Script><![CDATA[
+        import _assets.AppAssets;
+
+        import feathers.controls.ImageLoader;
+
+        import starling.events.Event;
+        
+
+        private function inTrCp(event:Event):void
+        {
+            trace("inTrCp()");
+            var im:ImageLoader=new ImageLoader()
+            im.source=AppAssets.AppLogoTextureMob
+            addChildAt(im,1)
+        }
+        ]]></fx:Script>
+    <f:layout>
+        <f:VerticalLayout gap="10" padding="10"
+                          horizontalAlign="center" verticalAlign="middle"/>
+    </f:layout>
+    <f:Label text="BIENVENUE"/>
+    <!-- <f:ImageLoader source="{AppAssets.AppLogoTextureMob}"/> -->
+    <f:Label text="powered by NEST FRAMEWORK"/>
+
+</f:Screen>

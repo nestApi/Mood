@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<f:PanelScreen xmlns:f="library://ns.feathersui.com/mxml" xmlns:fx="http://ns.adobe.com/mxml/2009" title="HOME" transitionInComplete="inTrCp(event)">
+    <fx:Script><![CDATA[
+        import starling.events.Event;
+
+        private function inTrCp(event:Event):void {
+            {
+                trace("inTrCp()");
+            }
+        }
+        ]]></fx:Script>
+</f:PanelScreen>

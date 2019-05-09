@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<f:StackScreenNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:f="library://ns.feathersui.com/mxml" 
+	
+	creationComplete="onCrCmp()"
+ initialize="onInit()"
+	>
+	<fx:Script>
+		<![CDATA[
+			import core.nest;
+
+			import feathers.core.StackScreenNavigatorApplication;
+			import feathers.motion.Fade;
+			import feathers.themes.UniflatMobileThemeColors;
+			import feathers.themes.UniflatMobileThemeWithIcons;
+			private static const SCREEN_INIT:String="init";
+			private static const SCREEN_LANDING:String="landing";
+			private static const SCREEN_NAVI:String="navi";
+			private static const virtual_db:Object = {
+            "presentation": [
+                {
+                    "acf": {
+                        "cliche_url": "/wp-content/uploads/2019/03/Nest-Presentation.001.jpeg"
+                    },
+                    "author": "1",
+                    "id": 26,
+                    "title": "2019_03_11_11-06"
+                }
+            ],
+            "structure": [
+                {
+                    "acf": {
+                        "prestation_cliches_list": [
+                            "26"
+                        ]
+                    },
+                    "author": "1",
+                    "id": 25,
+                    "title": "SESSION_2019_03_11"
+                }
+            ]
+        };
+
+        private static const nestConfig:Object = {
+            onLineTestServer: "https://duckduckgo.com",
+            nestServer: "https://mood-nest.000webhostapp.com",
+            express: false,
+            liveUpdate: false,
+            anonymousMode: true,
+            fieldsWithDdl: ["mix_file"]
+        };
+
+        private static const debugModes:Object = {
+            firstRunSimu: false,
+            onLineSimu: false,
+            offLineSimu: false,
+            updateSim: false,
+            nest_db_Simu: false
+        };
+
+        private static const _n:nest = new nest(nestConfig, debugModes, virtual_db);
+		
+			public static var CORE:StackScreenNavigatorApplication
+			private function onInit():void
+			{
+				
+				new UniflatMobileThemeWithIcons(
+				UniflatMobileThemeColors.Builder
+	.setColorStage(0xEEF2F6)
+	.setColorBackground(0xFFFFFF)
+	.setColorPrimary(0x07C1BB)
+	.setColorPrimaryDisabled(0xB4ECEA)
+	.setColorPrimaryContrast(0xFFFFFF)
+	.setColorPrimaryContrastDisabled(0xFFFFFF)
+	.setColorAlt(0xFF2D55)
+	.setColorAltDisabled(0xFFC0CC)
+	.setColorAltContrast(0xFFFFFF)
+	.setColorAltContrastDisabled(0xFFFFFF)
+	.setColorContrast(0x2B333A)
+	.setColorContrastDisabled(0xB1B4B7)
+	.build()
+				)
+				rootScreenID=SCREEN_INIT
+			}
+			private function onCrCmp():void
+			{
+				CORE=this
+				
+			}
+		]]>
+	</fx:Script>
+	<f:StackScreenNavigatorItem id="init" pushTransition="Fade.createFadeInTransition()">
+		<f:screen >
+			<fx:Class>screens.init</fx:Class>
+		</f:screen >
+	</f:StackScreenNavigatorItem>	
+	<f:StackScreenNavigatorItem id="landing" pushTransition="Fade.createFadeInTransition()">
+		<f:screen >
+			<fx:Class>screens.landing</fx:Class>
+		</f:screen >
+	</f:StackScreenNavigatorItem>
+	<f:StackScreenNavigatorItem id="navi" pushTransition="Fade.createFadeInTransition()">
+		<f:screen >
+			<fx:Class>screens.nav</fx:Class>
+		</f:screen >
+	</f:StackScreenNavigatorItem>
+</f:StackScreenNavigatorApplication>

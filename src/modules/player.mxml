@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:PanelScreen xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:f="library://ns.feathersui.com/mxml"
+    creationComplete="onCrtCmp(event)"
+    title="Player"
+    >
+	<fx:Script>
+		<![CDATA[
+			import starling.display.Image;
+            import feathers.themes.UniflatMobileThemeIcons
+            import starling.display.Image;
+            import starling.events.Event;
+            import feathers.media.SoundPlayer;
+            import feathers.media.PlayPauseToggleButton;
+            import feathers.media.SeekSlider;
+
+            public var sp:SoundPlayer;
+
+            private function onCrtCmp(event:Event):void
+            {
+                trace("soundplayer")
+                sp=new SoundPlayer()
+                addChild(sp)
+                var b:PlayPauseToggleButton=new PlayPauseToggleButton()
+                sp.addChild(b)
+                var s:SeekSlider=new SeekSlider()
+                sp.addChild(s)
+            }
+            private function setIcon():Image
+            {
+                return new Image(UniflatMobileThemeIcons.partyModeTexture)
+                
+            }
+            public function newMix(url:String):void
+            {
+                sp.soundSource
+            }
+
+            
+            
+		]]>
+	</fx:Script>
+</f:PanelScreen>

@@ -1,0 +1,16 @@
+{
+	"config": "air",
+	"compilerOptions": {
+		"library-path": ["./swcs/UniflatMobileThemeWithIcons.swc","../../_libs/Nest_Framework_Api-AS/bin/nest.swc"],
+		"output": "bin/Main.swf",
+		"default-size": {
+			"width": 400,
+			"height": 760
+		}
+	},
+	"application": "src/Main-app.xml",
+	"files":
+	[
+		"src/Main.mxml"
+	]
+}

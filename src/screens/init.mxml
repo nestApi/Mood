@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<f:Screen xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:f="library://ns.feathersui.com/mxml" creationComplete="inCrtCmp()">
+    <f:layout>
+		<f:AnchorLayout/>
+		</f:layout>
+
+<f:LayoutGroup>
+	<f:layout><f:VerticalLayout gap="20" horizontalAlign="center" verticalAlign="middle"/></f:layout>
+	<f:layoutData>
+			<f:AnchorLayoutData horizontalCenter="0" verticalCenter="0"/>
+	</f:layoutData>
+	<f:Label text="BIENVENUE" styleName="{Label.ALTERNATE_STYLE_NAME_HEADING}"></f:Label>
+	<f:ImageLoader id="logo"/>
+	<!-- <f:Button id="button" label="Skip" styleName="{feathers.themes.BaseUniflatMobileTheme.THEME_STYLE_NAME_BUTTON_OUTLINE}"
+		triggered="button_triggeredHandler(event)">
+	</f:Button>
+	<f:Button id="player" label="player" styleName="{feathers.themes.BaseUniflatMobileTheme.THEME_STYLE_NAME_BUTTON_OUTLINE}"
+		triggered="player_triggeredHandler(event)">
+	</f:Button> -->
+	<f:Label paddingTop="20" text="powered by NestFramwork" id="poweredLabel" styleName="{Label.ALTERNATE_STYLE_NAME_DETAIL}"></f:Label>
+</f:LayoutGroup>
+
+	<fx:Script><![CDATA[
+		import feathers.controls.TextCallout;
+		import feathers.core.StackScreenNavigatorApplication;
+		import feathers.controls.StackScreenNavigator;
+		import feathers.controls.StackScreenNavigatorItem;
+		import screens.landing;
+		import _assets.AppAssets;
+		import feathers.themes.BaseUniflatMobileTheme;
+		import starling.events.Event;
+		import events.nestEvent;
+
+		private function inCrtCmp():void
+		{
+		logo.source=AppAssets.AppLogoTextureMob
+		addEventListener(Event.COMPLETE,start)
+		}
+
+		private function button_triggeredHandler( event:Event ):void
+		{
+            trace(Main.CORE)
+            Main.CORE.pushScreen("navi")
+				
+		}
+
+		private function player_triggeredHandler(param0:Event):void
+		{
+			 Main.CORE.pushScreen("landing")
+		}
+
+		private function start(event:Event):void
+		{
+			 Main.CORE.pushScreen("navi")
+		}
+
+	]]></fx:Script>
+</f:Screen>
